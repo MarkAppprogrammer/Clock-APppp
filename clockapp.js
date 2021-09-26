@@ -180,4 +180,123 @@ function updateClock() {
 
 updateClock()
 	
+let span = document.getElementsByClassName("close")[0]
+let modal = document.getElementById("myModal")
+let input = document.getElementById("task-input")
+let text = document.getElementById("some-text")
+
+
+function createTask() {
+	modal.style.display = "block"
+	window.onclick = function(event) {
+  		if (event.target == modal) {
+    		modal.style.display = "none"
+  		}
+	}
+	span.onclick = function() {
+  	 modal.style.display = "none"
+	}
+}
+
+
+
+
+
+function createLi(name) {
+	//input.value is the txt
 	
+	//define some stuff
+	let li = document.createElement("li")
+	let input = document.createElement("input")
+	let list = document.getElementById("taskList")
+	let tasks = []	
+	let tasksStored = JSON.parse(localStorage.getItem("Tasks"))
+	let nameLower = name.toLowerCase()
+	
+
+	
+	//sets stuff
+	li.textContent = name
+	li.setAttribute("id", name + "_li")
+	list.appendChild(li)
+	input.setAttribute("type", "checkbox")
+	input.setAttribute("id", nameLower + "_input")
+	input.setAttribute("style", "display: inline-block")
+	input.setAttribute("onclick", "deleteTask()")
+	list.appendChild(input)
+	
+	
+	
+	
+	//hides modal
+	modal.style.display = "none"
+
+	//add to tasks
+	tasks.push(name)
+	
+	let tasksComb = tasks.concat(tasksStored)
+	
+
+	//local Storage
+	localStorage.setItem("Tasks", JSON.stringify(tasksComb))
+
+}
+
+function getInput() {
+	createLi(input.value)
+}
+
+// sets array stored in storage to this var
+//let tasksStored = JSON.parse(localStorage.getItem("Tasks"))
+
+//sets somestuff
+
+let list = document.getElementById("taskList")
+
+for (let i = 0; i < tasksStored.length; i++) {
+	
+	let li = document.createElement("li")
+	let input = document.getElementById("task-input")
+
+
+	
+	//sets stuff
+	li.textContent = tasksStored[i]
+	li.setAttribute("id", name + "_li")
+	list.appendChild(li)
+	input.setAttribute("type", "checkbox")
+	input.setAttribute("id", name + "_input")
+	input.setAttribute("style", "display: inline-block")
+	list.appendChild(input)
+	
+}
+
+
+
+
+
+
+
+function deleteTask()  {
+	let checkBoxFor = []
+	let name = input.value
+	let nameLower = name.toLowerCase()
+	let checkBox = nameLower + "_input"
+	let nameId = nameLower + "_li"
+	
+	
+	if (checkBox.checked = true) {
+		checkBox.style.display = "none";
+		nameId.style.display = " block";
+	}
+}
+
+
+
+
+
+
+
+
+
+
