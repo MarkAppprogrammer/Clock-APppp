@@ -200,6 +200,22 @@ function createTask() {
 
 
 
+function deleteTask()  {
+	let checkBoxFor = []
+	let name = input.value
+	let nameLower = name.toLowerCase()
+	let checkBox = nameLower + "_input"
+	let nameId = nameLower + "_li"
+	
+	
+	if (checkBox.checked = true) {
+      let elid = document.getElementById(nameId)
+      let checkboxid = document.getElementById(checkBox)
+      elid.remove()
+      checkboxid.remove()
+	}
+}
+
 
 
 function createLi(name) {
@@ -251,45 +267,7 @@ function getInput() {
 
 //sets somestuff
 
-let list = document.getElementById("taskList")
 
-for (let i = 0; i < tasksStored.length; i++) {
-	
-	let li = document.createElement("li")
-	let input = document.getElementById("task-input")
-
-
-	
-	//sets stuff
-	li.textContent = tasksStored[i]
-	li.setAttribute("id", name + "_li")
-	list.appendChild(li)
-	input.setAttribute("type", "checkbox")
-	input.setAttribute("id", name + "_input")
-	input.setAttribute("style", "display: inline-block")
-	list.appendChild(input)
-	
-}
-
-
-
-
-
-
-
-function deleteTask()  {
-	let checkBoxFor = []
-	let name = input.value
-	let nameLower = name.toLowerCase()
-	let checkBox = nameLower + "_input"
-	let nameId = nameLower + "_li"
-	
-	
-	if (checkBox.checked = true) {
-		checkBox.style.display = "none";
-		nameId.style.display = " block";
-	}
-}
 
 
 
