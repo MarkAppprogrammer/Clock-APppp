@@ -267,7 +267,20 @@ function getInput() {
 
 //sets somestuff
 
+function changePage() {
+	window.location = "clever.html"
+}
 
+function encode(key, text) {
+	
+}
+
+function changeReal() {
+	let key = prompt("Key:")
+	let text = prompt("Text:")
+	
+	encode(key, text)
+}
 
 
 
