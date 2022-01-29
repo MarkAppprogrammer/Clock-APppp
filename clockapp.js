@@ -272,14 +272,37 @@ function changePage() {
 }
 
 function encode(key, text) {
+	let abcArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V","W", "X", "Y", "Z"]
 	
+	let textNum = []
+	keyArray.from(key) 
+	let final = ""
+	
+	for (let i = 0; i < text.length; i++) {
+		for (let j = 0; j < 25; j++) {
+			if (abcArray[j] == text[i]) {
+				textNum.push(i)
+			}
+		}
+	}
+	
+	for (let i = 0; i < text.length; i++) {
+		for (let j = 0; j < 25; j++) {
+			if (j == text[i]) {
+				final += keyArray[j]
+			}
+		}
+	}
+	
+	return final;
 }
 
 function changeReal() {
 	let key = prompt("Key:")
 	let text = prompt("Text:")
 	
-	encode(key, text)
+	let encoded = encode(key, text)
+	alert(encoded)
 }
 
 
